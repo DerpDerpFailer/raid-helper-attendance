@@ -13,6 +13,14 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/** Thrown for a non-2xx response; carries the HTTP status so callers can branch on it (e.g. 404). */
+class RaidHelperApiError extends Error {
+  constructor(status, statusText, path) {
+    super(`Raid-Helper API ${status} ${statusText} for ${path}`);
+    this.status = status;
+  }
+}
+
 let lastRequestAt = 0;
 
 async function waitForSlot() {
@@ -45,15 +53,21 @@ async function request(path, { auth = false } = {}) {
         const waitMs = retryAfterMs(res) ?? RETRY_DELAY_MS * 2 * attempt;
         logger.warn({ path, attempt, waitMs }, 'Raid-Helper API rate limit hit, backing off');
         if (attempt < MAX_RETRIES) await sleep(waitMs);
-        lastError = new Error(`Raid-Helper API 429 Too Many Requests for ${path}`);
+        lastError = new RaidHelperApiError(429, 'Too Many Requests', path);
         continue;
       }
+      if (res.status === 404) {
+        // Not transient — retrying won't help. Fail fast so callers (e.g. eventSync) can treat
+        // it as "this event was deleted on Raid-Helper's side" instead of wasting 3 retries on it.
+        throw new RaidHelperApiError(404, 'Not Found', path);
+      }
       if (!res.ok) {
-        throw new Error(`Raid-Helper API ${res.status} ${res.statusText} for ${path}`);
+        throw new RaidHelperApiError(res.status, res.statusText, path);
       }
       return await res.json();
     } catch (err) {
       lastError = err;
+      if (err instanceof RaidHelperApiError && err.status === 404) throw err;
       logger.warn({ path, attempt, err: err.message }, 'Raid-Helper API request failed, retrying');
       if (attempt < MAX_RETRIES) await sleep(RETRY_DELAY_MS * attempt);
     }
@@ -76,4 +90,4 @@ function getScheduledEvents(serverId) {
   return request(`/servers/${serverId}/scheduledevents`, { auth: true });
 }
 
-module.exports = { getEvent, getServerEvents, getScheduledEvents };
+module.exports = { getEvent, getServerEvents, getScheduledEvents, RaidHelperApiError };

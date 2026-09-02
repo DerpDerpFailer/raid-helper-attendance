@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
+const { buildDescription } = require('./truncate');
 
 const BADGE = { Critical: '🔴', Alert: '🟠' };
 
@@ -23,12 +24,8 @@ function buildDropoutsEmbed({ rows, period }) {
 
   const hasCritical = dropouts.some((r) => r.alert_level === 'Critical');
   embed.setColor(hasCritical ? 0xe74c3c : 0xf39c12);
-  embed.setDescription(
-    dropouts
-      .sort((a, b) => a.rank_change - b.rank_change)
-      .map(formatEntry)
-      .join('\n')
-  );
+  const lines = dropouts.sort((a, b) => a.rank_change - b.rank_change).map(formatEntry);
+  embed.setDescription(buildDescription(lines));
   return embed;
 }
 

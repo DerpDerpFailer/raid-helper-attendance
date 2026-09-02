@@ -12,9 +12,17 @@ rankings, individual trends, and dropout alerts for a single guild.
   from current rankings).
 - Computes, once a day, a stats snapshot for the current period (week/month/rolling window,
   configurable) and keeps the previous period's snapshot frozen for trend comparisons.
-- Exposes `/top`, `/flop`, `/stats`, `/dropouts` and an admin `/sync` command.
+- Exposes `/top`, `/flop`, `/stats`, `/dropouts` and admin `/sync` and `/setup` commands.
 
 See [`.env.example`](./.env.example) for every configuration option.
+
+## First-time setup: `/setup role`
+
+Run `/setup role` (requires Manage Server) and pick the role your active raiders actually have
+(e.g. "Member"). Only members holding that role are tracked for stats — this is what keeps bots,
+allies, and guests out of the rankings. Without it configured, the bot falls back to tracking
+every non-bot guild member, which is rarely what you want. After changing it, run `/sync now` to
+re-sync membership immediately (otherwise it applies at the next daily cron).
 
 ## Local development
 

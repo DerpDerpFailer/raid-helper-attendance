@@ -12,6 +12,7 @@ WITH base AS (
     ON e.start_time >= @periodStart AND e.start_time < @periodEnd
    AND e.start_time >= m.joined_at
    AND (m.is_active = 1 OR m.left_at IS NULL OR e.start_time <= m.left_at)
+  WHERE m.is_bot = 0
   GROUP BY m.id
 ),
 signed AS (

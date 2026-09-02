@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const config = require('../../config');
+const { buildDescription } = require('./truncate');
 
 const MEDALS = ['🥇', '🥈', '🥉'];
 const AXIS_LABEL = { global: 'Global Score', presence: 'Presence', response: 'Response' };
@@ -34,7 +35,8 @@ function buildTopFlopEmbed({ kind, axis, rows, period }) {
     return embed;
   }
 
-  embed.setDescription(rows.map((r, i) => formatRow(r, axis, kind === 'top' ? i : -1)).join('\n'));
+  const lines = rows.map((r, i) => formatRow(r, axis, kind === 'top' ? i : -1));
+  embed.setDescription(buildDescription(lines));
   return embed;
 }
 

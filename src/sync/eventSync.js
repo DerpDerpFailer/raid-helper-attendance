@@ -27,6 +27,13 @@ async function syncEvents(eventIds) {
     try {
       await syncEvent(id);
     } catch (err) {
+      if (err instanceof client.RaidHelperApiError && err.status === 404) {
+        // Deleted on Raid-Helper's side (e.g. the raid leader cancelled it) — not a failure to
+        // retry forever, just remove our copy (cascades to its sign-ups) and move on.
+        eventsRepo.remove(id);
+        logger.info({ eventId: id }, 'Event no longer exists on Raid-Helper, removed locally');
+        continue;
+      }
       failures += 1;
       logger.error({ eventId: id, err: err.message }, 'Failed to sync event, skipping');
     }

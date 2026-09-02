@@ -27,4 +27,10 @@ function getAllIds() {
   return db.prepare('SELECT id FROM events').all().map((r) => r.id);
 }
 
-module.exports = { upsert, getById, getAllIds };
+/** Removes an event and, via ON DELETE CASCADE, its sign-ups. Used when Raid-Helper 404s it. */
+function remove(id) {
+  const db = getDb();
+  db.prepare('DELETE FROM events WHERE id = ?').run(id);
+}
+
+module.exports = { upsert, getById, getAllIds, remove };

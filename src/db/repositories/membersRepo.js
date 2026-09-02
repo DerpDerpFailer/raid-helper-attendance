@@ -13,25 +13,30 @@ function ensureExists(id, displayName) {
   `).run(id, displayName || id, now, now, now);
 }
 
-/** Called on guildMemberAdd (live) or reconciliation: (re)marks a member active with a fresh joined_at. */
-function recordJoin(id, displayName, joinedAt) {
+/**
+ * Called on guildMemberAdd (live) or reconciliation: (re)marks a member active with a fresh
+ * joined_at. `isBot` tracks Discord bot accounts (Raid-Helper itself, music bots, etc.) so the
+ * stats engine can exclude them entirely — they never sign up for raids, so they'd otherwise show
+ * up as a giant 0%-everywhere tie block at the bottom of every ranking.
+ */
+function recordJoin(id, displayName, joinedAt, isBot = false) {
   const db = getDb();
   const now = new Date().toISOString();
   const existing = db.prepare('SELECT id FROM members WHERE id = ?').get(id);
 
   if (!existing) {
     db.prepare(`
-      INSERT INTO members (id, display_name, is_active, joined_at, left_at, first_seen_at, updated_at)
-      VALUES (?, ?, 1, ?, NULL, ?, ?)
-    `).run(id, displayName, joinedAt, joinedAt, now);
+      INSERT INTO members (id, display_name, is_active, joined_at, left_at, is_bot, first_seen_at, updated_at)
+      VALUES (?, ?, 1, ?, NULL, ?, ?, ?)
+    `).run(id, displayName, joinedAt, isBot ? 1 : 0, joinedAt, now);
     return;
   }
 
   db.prepare(`
     UPDATE members
-    SET display_name = ?, is_active = 1, joined_at = ?, left_at = NULL, updated_at = ?
+    SET display_name = ?, is_active = 1, joined_at = ?, left_at = NULL, is_bot = ?, updated_at = ?
     WHERE id = ?
-  `).run(displayName, joinedAt, now, id);
+  `).run(displayName, joinedAt, isBot ? 1 : 0, now, id);
 }
 
 /** Called on guildMemberRemove (live) or reconciliation: marks a member as departed. */
