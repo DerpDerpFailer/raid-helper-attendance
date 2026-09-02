@@ -14,6 +14,9 @@ const engine = require('../../src/stats/engine');
 
 const PERIOD_START = new Date('2026-08-31T00:00:00.000Z');
 const PERIOD_END = new Date('2026-09-07T00:00:00.000Z');
+// Fixed reference "now" for every existing assertion below, so they don't depend on the real
+// wall clock (and don't silently start failing once real time passes PERIOD_END).
+const NOW = PERIOD_END;
 
 function seedMember(id, displayName, joinedAt, { isActive = 1, leftAt = null } = {}) {
   const db = getDb();
@@ -55,6 +58,9 @@ describe('stats/engine computeSnapshotRows', () => {
     seedEvent('evt1', '2026-09-01T20:00:00.000Z');
     seedEvent('evt2', '2026-09-03T20:00:00.000Z');
     seedEvent('evt3', '2026-09-06T20:00:00.000Z');
+    // Not yet happened as of NOW (2026-09-07) even though it's already posted with a sign-up —
+    // must not count toward anyone's denominator or numerator yet.
+    seedEvent('evt4_future', '2026-09-10T20:00:00.000Z');
 
     // Alice: perfect attendance across all 3 events.
     seedSignup('evt1', 'alice', 'Accepted');
@@ -75,10 +81,13 @@ describe('stats/engine computeSnapshotRows', () => {
 
     // Erin signs everything she can but hasn't cleared the eligibility tenure yet.
     seedSignup('evt3', 'erin', 'Accepted');
+
+    // Alice already signed up for the future event — shouldn't matter, it hasn't happened yet.
+    seedSignup('evt4_future', 'alice', 'Accepted');
   });
 
   it('computes rates correctly and excludes ineligible members from ranks', () => {
-    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
 
     expect(byId.alice.totalEvents).toBe(3);
@@ -99,7 +108,7 @@ describe('stats/engine computeSnapshotRows', () => {
   });
 
   it('applies competition-style ranking (ties share a rank, next rank skips)', () => {
-    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
 
     // Alice and Bob both have presence_rate = 1 (3/3) -> tied for rank 1 on presence.
@@ -110,7 +119,7 @@ describe('stats/engine computeSnapshotRows', () => {
   });
 
   it('excludes members below the eligibility tenure threshold from ranks', () => {
-    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const erin = rows.find((r) => r.memberId === 'erin');
 
     expect(erin.eligible).toBe(0);
@@ -120,7 +129,7 @@ describe('stats/engine computeSnapshotRows', () => {
   });
 
   it('applies the 0.7/0.3 global score weighting', () => {
-    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const bob = rows.find((r) => r.memberId === 'bob');
 
     const expectedScore = 0.7 * bob.presenceRate + 0.3 * bob.responseRate;
@@ -128,7 +137,7 @@ describe('stats/engine computeSnapshotRows', () => {
   });
 
   it('tracks explicit Absence marks as a distinct metric from a low presence rate', () => {
-    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
 
     expect(byId.carol.absences).toBe(1);
@@ -141,5 +150,22 @@ describe('stats/engine computeSnapshotRows', () => {
     expect(byId.alice.absenceRank).toBe(1);
     expect(byId.bob.absenceRank).toBe(1);
     expect(byId.carol.absenceRank).toBe(3);
+  });
+
+  it('excludes events that have not happened yet, even if already posted with sign-ups', () => {
+    // Widen the period to include evt4_future (2026-09-10), but keep NOW at the original 2026-09-07
+    // — the event still hasn't happened as of NOW, so it must not count yet either way.
+    const widePeriodEnd = new Date('2026-09-14T00:00:00.000Z');
+    const rows = engine.computeSnapshotRows(PERIOD_START, widePeriodEnd, NOW);
+    const alice = rows.find((r) => r.memberId === 'alice');
+
+    expect(alice.totalEvents).toBe(3);
+    expect(alice.responses).toBe(3);
+
+    // Once NOW moves past the event, it counts normally.
+    const laterRows = engine.computeSnapshotRows(PERIOD_START, widePeriodEnd, new Date('2026-09-11T00:00:00.000Z'));
+    const aliceLater = laterRows.find((r) => r.memberId === 'alice');
+    expect(aliceLater.totalEvents).toBe(4);
+    expect(aliceLater.responses).toBe(4);
   });
 });

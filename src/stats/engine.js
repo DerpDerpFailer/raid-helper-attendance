@@ -6,10 +6,15 @@ const logger = require('../utils/logger');
 
 const SNAPSHOT_QUERY = `
 WITH base AS (
+  -- e.start_time <= @now excludes events still upcoming within the current (live/partial) period:
+  -- an event that hasn't happened yet can't count against anyone's denominator, since members
+  -- still have time to sign up for it. Frozen past periods are unaffected (their end is already
+  -- before @now by construction, so every event in them already satisfies this).
   SELECT m.id AS member_id, m.joined_at, m.is_active, COUNT(e.id) AS total_events
   FROM members m
   JOIN events e
     ON e.start_time >= @periodStart AND e.start_time < @periodEnd
+   AND e.start_time <= @now
    AND e.start_time >= m.joined_at
    AND (m.is_active = 1 OR m.left_at IS NULL OR e.start_time <= m.left_at)
   WHERE m.is_bot = 0
@@ -21,7 +26,7 @@ signed AS (
     SUM(s.is_present) AS presences,
     SUM(CASE WHEN s.status = 'Absence' THEN 1 ELSE 0 END) AS absences
   FROM signups s JOIN events e ON e.id = s.event_id
-  WHERE e.start_time >= @periodStart AND e.start_time < @periodEnd
+  WHERE e.start_time >= @periodStart AND e.start_time < @periodEnd AND e.start_time <= @now
   GROUP BY s.member_id
 ),
 computed AS (
@@ -32,7 +37,9 @@ computed AS (
     CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.responses, 0) AS REAL) / b.total_events ELSE 0 END AS response_rate,
     CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.presences, 0) AS REAL) / b.total_events ELSE 0 END AS presence_rate,
     CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.absences, 0) AS REAL) / b.total_events ELSE 0 END AS absence_rate,
-    CASE WHEN b.is_active = 1 AND (julianday(@periodEnd) - julianday(b.joined_at)) >= @eligibilityMinDays
+    -- Tenure as of @now, not @periodEnd: for the current (live) period, periodEnd is still in the
+    -- future, and days that haven't happened yet shouldn't count toward eligibility either.
+    CASE WHEN b.is_active = 1 AND (julianday(@now) - julianday(b.joined_at)) >= @eligibilityMinDays
          THEN 1 ELSE 0 END AS eligible
   FROM base b LEFT JOIN signed sg ON sg.member_id = b.member_id
 ),
@@ -53,12 +60,17 @@ SELECT
 FROM scored;
 `;
 
-/** Computes per-member stats rows for [periodStart, periodEnd). Pure read, no writes. */
-function computeSnapshotRows(periodStart, periodEnd) {
+/**
+ * Computes per-member stats rows for [periodStart, periodEnd), counting only events that have
+ * already happened as of `now` (defaults to the actual current time — overridable for tests).
+ * Pure read, no writes.
+ */
+function computeSnapshotRows(periodStart, periodEnd, now = new Date()) {
   const db = getDb();
   const rows = db.prepare(SNAPSHOT_QUERY).all({
     periodStart: periodStart.toISOString(),
     periodEnd: periodEnd.toISOString(),
+    now: now.toISOString(),
     eligibilityMinDays: config.stats.eligibilityMinDays,
   });
 
