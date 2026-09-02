@@ -1,0 +1,27 @@
+{
+  "name": "raid-helper-attendance",
+  "version": "0.1.0",
+  "description": "Discord bot computing Raid-Helper sign-up attendance stats, rankings and dropout alerts.",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy-commands": "node src/discord/commands/deploy.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "pino": "^9.4.0",
+    "pino-pretty": "^11.2.2"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

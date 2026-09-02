@@ -1,0 +1,129 @@
+import { describe, it, expect, beforeAll } from 'vitest';
+
+process.env.DISCORD_TOKEN = 'test';
+process.env.DISCORD_CLIENT_ID = 'test';
+process.env.DISCORD_GUILD_ID = 'test';
+process.env.RAIDHELPER_API_KEY = 'test';
+process.env.RAIDHELPER_SERVER_ID = 'test';
+process.env.DB_PATH = ':memory:';
+process.env.ELIGIBILITY_MIN_DAYS = '14';
+
+const { migrate } = require('../../src/db/migrate');
+const { getDb } = require('../../src/db/connection');
+const engine = require('../../src/stats/engine');
+
+const PERIOD_START = new Date('2026-08-31T00:00:00.000Z');
+const PERIOD_END = new Date('2026-09-07T00:00:00.000Z');
+
+function seedMember(id, displayName, joinedAt, { isActive = 1, leftAt = null } = {}) {
+  const db = getDb();
+  db.prepare(`
+    INSERT INTO members (id, display_name, is_active, joined_at, left_at, first_seen_at, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `).run(id, displayName, isActive, joinedAt, leftAt, joinedAt, joinedAt);
+}
+
+function seedEvent(id, startTime) {
+  const db = getDb();
+  db.prepare(`
+    INSERT INTO events (id, title, start_time, last_synced_at) VALUES (?, ?, ?, ?)
+  `).run(id, `Event ${id}`, startTime, startTime);
+}
+
+function seedSignup(eventId, memberId, status) {
+  const db = getDb();
+  db.prepare(`
+    INSERT INTO signups (event_id, member_id, status, updated_at) VALUES (?, ?, ?, ?)
+  `).run(eventId, memberId, status, new Date().toISOString());
+}
+
+describe('stats/engine computeSnapshotRows', () => {
+  beforeAll(() => {
+    migrate();
+
+    // Long-tenured, eligible members (joined well before the period).
+    seedMember('alice', 'Alice', '2026-01-01T00:00:00.000Z');
+    seedMember('bob', 'Bob', '2026-01-01T00:00:00.000Z');
+    seedMember('carol', 'Carol', '2026-01-01T00:00:00.000Z');
+    // Departed member (left before the period started): history must remain untouched (his
+    // evt1 sign-up below still exists), but he must not accrue phantom "missed" events for a
+    // period he wasn't even a member for anymore.
+    seedMember('dave', 'Dave', '2026-01-01T00:00:00.000Z', { isActive: 0, leftAt: '2026-08-15T00:00:00.000Z' });
+    // Brand new member (joined 2 days before period end): not yet eligible (< 14 days tenure).
+    seedMember('erin', 'Erin', '2026-09-05T00:00:00.000Z');
+
+    seedEvent('evt1', '2026-09-01T20:00:00.000Z');
+    seedEvent('evt2', '2026-09-03T20:00:00.000Z');
+    seedEvent('evt3', '2026-09-06T20:00:00.000Z');
+
+    // Alice: perfect attendance across all 3 events.
+    seedSignup('evt1', 'alice', 'Accepted');
+    seedSignup('evt2', 'alice', 'Accepted');
+    seedSignup('evt3', 'alice', 'Accepted');
+
+    // Bob: ties Alice on presence rate via Tentative (still counts present), but responds less.
+    seedSignup('evt1', 'bob', 'Tentative');
+    seedSignup('evt2', 'bob', 'Accepted');
+    seedSignup('evt3', 'bob', 'Accepted');
+
+    // Carol: one explicit absence, one no-response.
+    seedSignup('evt1', 'carol', 'Absence');
+    seedSignup('evt2', 'carol', 'Accepted');
+
+    // Dave (inactive) still has historical sign-ups that must not be deleted.
+    seedSignup('evt1', 'dave', 'Accepted');
+
+    // Erin signs everything she can but hasn't cleared the eligibility tenure yet.
+    seedSignup('evt3', 'erin', 'Accepted');
+  });
+
+  it('computes rates correctly and excludes ineligible members from ranks', () => {
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
+
+    expect(byId.alice.totalEvents).toBe(3);
+    expect(byId.alice.responses).toBe(3);
+    expect(byId.alice.presences).toBe(3);
+    expect(byId.alice.presenceRate).toBeCloseTo(1);
+    expect(byId.alice.eligible).toBe(1);
+
+    // Carol: responded to 1/3 as present (evt2), 1/3 responded-but-absent (evt1), 1/3 no response.
+    expect(byId.carol.responses).toBe(2);
+    expect(byId.carol.presences).toBe(1);
+    expect(byId.carol.presenceRate).toBeCloseTo(1 / 3);
+
+    // Dave left before this period even started: no events fall in his membership window, so he
+    // produces no row at all (not a row with eligible=0) — his historical evt1 sign-up is untouched
+    // in the `signups` table, just outside every period computed from now on.
+    expect(byId.dave).toBeUndefined();
+  });
+
+  it('applies competition-style ranking (ties share a rank, next rank skips)', () => {
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
+
+    // Alice and Bob both have presence_rate = 1 (3/3) -> tied for rank 1 on presence.
+    expect(byId.alice.presenceRank).toBe(1);
+    expect(byId.bob.presenceRank).toBe(1);
+    // Carol is third-lowest presence among the 3 eligible members -> rank 3, not 2 (competition ranking).
+    expect(byId.carol.presenceRank).toBe(3);
+  });
+
+  it('excludes members below the eligibility tenure threshold from ranks', () => {
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const erin = rows.find((r) => r.memberId === 'erin');
+
+    expect(erin.eligible).toBe(0);
+    expect(erin.globalRank).toBeNull();
+    expect(erin.presenceRank).toBeNull();
+    expect(erin.responseRank).toBeNull();
+  });
+
+  it('applies the 0.7/0.3 global score weighting', () => {
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const bob = rows.find((r) => r.memberId === 'bob');
+
+    const expectedScore = 0.7 * bob.presenceRate + 0.3 * bob.responseRate;
+    expect(bob.scoreGlobal).toBeCloseTo(expectedScore);
+  });
+});

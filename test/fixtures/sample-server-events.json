@@ -1,0 +1,71 @@
+{
+  "pages": 1,
+  "eventsOverall": 3,
+  "eventsTransmitted": 3,
+  "currentPage": 1,
+  "postedEvents": [
+    {
+      "creator": {
+        "name": "TestLeader",
+        "id": "589432546716613029"
+      },
+      "color": "255,0,0",
+      "description": "Anonymized fixture for tests.",
+      "title": "Test Event 0",
+      "templateId": "43",
+      "coLeaders": [],
+      "signUpCount": "21",
+      "leaderId": "589432546716613029",
+      "lastUpdated": 1788294602,
+      "leaderName": "TestLeader",
+      "scheduledId": "1507069667041349763-4",
+      "closeTime": 1788287400,
+      "startTime": 1788289200,
+      "endTime": 1788291000,
+      "id": "200000000000000000",
+      "channelId": "000000000000000001"
+    },
+    {
+      "creator": {
+        "name": "TestLeader",
+        "id": "804194760635990567"
+      },
+      "color": "255,0,0",
+      "description": "Anonymized fixture for tests.",
+      "title": "Test Event 1",
+      "templateId": "43",
+      "coLeaders": [],
+      "signUpCount": "15",
+      "leaderId": "804194760635990567",
+      "lastUpdated": 1788287402,
+      "leaderName": "TestLeader",
+      "scheduledId": "1507069667041349763",
+      "closeTime": 1788280200,
+      "startTime": 1788282000,
+      "endTime": 1788283800,
+      "id": "200000000000000001",
+      "channelId": "000000000000000001"
+    },
+    {
+      "creator": {
+        "name": "TestLeader",
+        "id": "589432546716613029"
+      },
+      "color": "255,0,0",
+      "description": "Anonymized fixture for tests.",
+      "title": "Test Event 2",
+      "templateId": "43",
+      "coLeaders": [],
+      "signUpCount": "31",
+      "leaderId": "589432546716613029",
+      "lastUpdated": 1788208203,
+      "leaderName": "TestLeader",
+      "scheduledId": "1507069528876646560",
+      "closeTime": 1788201000,
+      "startTime": 1788202800,
+      "endTime": 1788204600,
+      "id": "200000000000000002",
+      "channelId": "000000000000000001"
+    }
+  ]
+}

@@ -1,0 +1,3172 @@
+{
+  "date": "2-9-2026",
+  "signUps": [
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788363005,
+      "name": "TestMember0",
+      "className": "Absence",
+      "id": 100000,
+      "position": 24,
+      "classEmoteId": "612343589070045200",
+      "userId": "40585082536948647",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788188386,
+      "specName": "Seeker",
+      "name": "TestMember1",
+      "className": "Healer",
+      "cSpecName": "Seeker",
+      "specEmoteId": "1305473487858700308",
+      "id": 100001,
+      "position": 11,
+      "classEmoteId": "898011741735235645",
+      "userId": "684143237699301200",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788371205,
+      "name": "TestMember2",
+      "className": "Absence",
+      "id": 100002,
+      "position": 29,
+      "classEmoteId": "612343589070045200",
+      "userId": "813588042238262148",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788375058,
+      "name": "TestMember3",
+      "className": "Absence",
+      "id": 100003,
+      "position": 30,
+      "classEmoteId": "612343589070045200",
+      "userId": "907253301598768186",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tank",
+      "entryTime": 1788118978,
+      "specName": "Steelheart",
+      "name": "TestMember4",
+      "className": "Tank",
+      "cSpecName": "Steelheart",
+      "specEmoteId": "1314320018644930630",
+      "id": 100004,
+      "position": 6,
+      "classEmoteId": "878310168289505301",
+      "userId": "1020373588236903037",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tank",
+      "entryTime": 1788117668,
+      "specName": "Templar",
+      "name": "TestMember5",
+      "className": "Tank",
+      "cSpecName": "Templar",
+      "specEmoteId": "1305473491696484394",
+      "id": 100005,
+      "position": 5,
+      "classEmoteId": "878310168289505301",
+      "userId": "421448356587516433",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Dps",
+      "entryTime": 1788362258,
+      "specName": "Ravager",
+      "name": "TestMember6",
+      "className": "Dps",
+      "cSpecName": "Ravager",
+      "specEmoteId": "1305473457370300456",
+      "id": 100006,
+      "position": 22,
+      "classEmoteId": "592440132129521664",
+      "userId": "223020344218517536",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788345789,
+      "name": "TestMember7",
+      "className": "Absence",
+      "id": 100007,
+      "position": 18,
+      "classEmoteId": "612343589070045200",
+      "userId": "981304522274833054",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788166032,
+      "name": "TestMember8",
+      "className": "Absence",
+      "id": 100008,
+      "position": 9,
+      "classEmoteId": "612343589070045200",
+      "userId": "900999496142276",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Dps",
+      "entryTime": 1788122829,
+      "specName": "Spellblade",
+      "name": "TestMember9",
+      "className": "Dps",
+      "cSpecName": "Spellblade",
+      "specEmoteId": "1305473490685526067",
+      "id": 100009,
+      "position": 7,
+      "classEmoteId": "592440132129521664",
+      "userId": "768255473215499929",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tank",
+      "entryTime": 1788116561,
+      "specName": "Crusader",
+      "name": "TestMember10",
+      "className": "Tank",
+      "cSpecName": "Crusader",
+      "specEmoteId": "1305473376122441788",
+      "id": 100010,
+      "position": 1,
+      "classEmoteId": "878310168289505301",
+      "userId": "249295224568237397",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Dps",
+      "entryTime": 1788343278,
+      "specName": "Shadowdancer",
+      "name": "TestMember11",
+      "className": "Dps",
+      "cSpecName": "Shadowdancer",
+      "specEmoteId": "1314320015670902794",
+      "id": 100011,
+      "position": 16,
+      "classEmoteId": "592440132129521664",
+      "userId": "202401811605586873",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788303573,
+      "name": "TestMember12",
+      "className": "Absence",
+      "id": 100012,
+      "position": 14,
+      "classEmoteId": "612343589070045200",
+      "userId": "1120147608410269425",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788375903,
+      "name": "TestMember13",
+      "className": "Absence",
+      "id": 100013,
+      "position": 31,
+      "classEmoteId": "612343589070045200",
+      "userId": "559202252892986064",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788343571,
+      "specName": "Seeker",
+      "name": "TestMember14",
+      "className": "Healer",
+      "cSpecName": "Seeker",
+      "specEmoteId": "1305473487858700308",
+      "id": 100014,
+      "position": 17,
+      "classEmoteId": "898011741735235645",
+      "userId": "589432546716613029",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788116949,
+      "specName": "Oracle",
+      "name": "TestMember15",
+      "className": "Healer",
+      "cSpecName": "Oracle",
+      "specEmoteId": "1418371426204778527",
+      "id": 100015,
+      "position": 2,
+      "classEmoteId": "898011741735235645",
+      "userId": "804194760635990567",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Dps",
+      "entryTime": 1788357662,
+      "specName": "Ravager",
+      "name": "TestMember16",
+      "className": "Dps",
+      "cSpecName": "Ravager",
+      "specEmoteId": "1305473457370300456",
+      "id": 100016,
+      "position": 21,
+      "classEmoteId": "592440132129521664",
+      "userId": "376290761429365528",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tank",
+      "entryTime": 1788169157,
+      "specName": "Crusader",
+      "name": "TestMember17",
+      "className": "Tank",
+      "cSpecName": "Crusader",
+      "specEmoteId": "1305473376122441788",
+      "id": 100017,
+      "position": 10,
+      "classEmoteId": "878310168289505301",
+      "userId": "733049027703640483",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Dps",
+      "entryTime": 1788117123,
+      "specName": "Crucifix",
+      "name": "TestMember18",
+      "className": "Dps",
+      "cSpecName": "Crucifix",
+      "specEmoteId": "1418371412145602674",
+      "id": 100018,
+      "position": 3,
+      "classEmoteId": "592440132129521664",
+      "userId": "568047987629457674",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788203687,
+      "name": "TestMember19",
+      "className": "Absence",
+      "id": 100019,
+      "position": 13,
+      "classEmoteId": "612343589070045200",
+      "userId": "1059113554695321213",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788371098,
+      "name": "TestMember20",
+      "className": "Absence",
+      "id": 100020,
+      "position": 28,
+      "classEmoteId": "612343589070045200",
+      "userId": "1045444749354990727",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788368767,
+      "name": "TestMember21",
+      "className": "Absence",
+      "id": 100021,
+      "position": 25,
+      "classEmoteId": "612343589070045200",
+      "userId": "452120116990752424",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788369226,
+      "specName": "Seeker",
+      "name": "TestMember22",
+      "className": "Healer",
+      "cSpecName": "Seeker",
+      "specEmoteId": "1305473487858700308",
+      "id": 100022,
+      "position": 26,
+      "classEmoteId": "898011741735235645",
+      "userId": "463305547530580035",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788356528,
+      "specName": "Seeker",
+      "name": "TestMember23",
+      "className": "Healer",
+      "cSpecName": "Seeker",
+      "specEmoteId": "1305473487858700308",
+      "id": 100023,
+      "position": 20,
+      "classEmoteId": "898011741735235645",
+      "userId": "438524260226423145",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788198919,
+      "specName": "Oracle",
+      "name": "TestMember24",
+      "className": "Healer",
+      "cSpecName": "Oracle",
+      "specEmoteId": "1418371426204778527",
+      "id": 100024,
+      "position": 12,
+      "classEmoteId": "898011741735235645",
+      "userId": "1066821753815946712",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788369871,
+      "name": "TestMember25",
+      "className": "Absence",
+      "id": 100025,
+      "position": 27,
+      "classEmoteId": "612343589070045200",
+      "userId": "702634549217265814",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788338648,
+      "specName": "Oracle",
+      "name": "TestMember26",
+      "className": "Healer",
+      "cSpecName": "Oracle",
+      "specEmoteId": "1418371426204778527",
+      "id": 100026,
+      "position": 15,
+      "classEmoteId": "898011741735235645",
+      "userId": "184492458427890158",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tentative",
+      "entryTime": 1788362615,
+      "specName": "Crusader",
+      "name": "TestMember27",
+      "className": "Tentative",
+      "cSpecName": "Crusader",
+      "specEmoteId": "1305473376122441788",
+      "id": 100027,
+      "position": 23,
+      "classEmoteId": "676284492754976788",
+      "userId": "6411935487081314",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Absence",
+      "entryTime": 1788376243,
+      "name": "TestMember28",
+      "className": "Absence",
+      "id": 100028,
+      "position": 32,
+      "classEmoteId": "612343589070045200",
+      "userId": "594858335427298885",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Healer",
+      "entryTime": 1788117141,
+      "specName": "Seeker",
+      "name": "TestMember29",
+      "className": "Healer",
+      "cSpecName": "Seeker",
+      "specEmoteId": "1305473487858700308",
+      "id": 100029,
+      "position": 4,
+      "classEmoteId": "898011741735235645",
+      "userId": "463559218648091749",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tank",
+      "entryTime": 1788139707,
+      "specName": "Crusader",
+      "name": "TestMember30",
+      "className": "Tank",
+      "cSpecName": "Crusader",
+      "specEmoteId": "1305473376122441788",
+      "id": 100030,
+      "position": 8,
+      "classEmoteId": "878310168289505301",
+      "userId": "1119901138880776989",
+      "status": "primary"
+    },
+    {
+      "cClassName": "Tentative",
+      "entryTime": 1788356281,
+      "specName": "Crusader",
+      "name": "TestMember31",
+      "className": "Tentative",
+      "cSpecName": "Crusader",
+      "specEmoteId": "1305473376122441788",
+      "id": 100031,
+      "position": 19,
+      "classEmoteId": "676284492754976788",
+      "userId": "894034544144328926",
+      "status": "primary"
+    }
+  ],
+  "color": "103,58,183",
+  "classes": [
+    {
+      "specs": [
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Battleweaver",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Battleweaver",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473373828284476",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Berserker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Berserker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473374969139220",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Cavalier",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Cavalier",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320014425198602",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crucifix",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crucifix",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371412145602674",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crusader",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crusader",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473376122441788",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Darkblighter",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Darkblighter",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473377791643658",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Disciple",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Disciple",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473378936946709",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Enigma",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Enigma",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371414645276764",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Eradicator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Eradicator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320012730830858",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Fury",
+          "roles": [
+            {
+              "cName": "Melee",
+              "name": "Melee"
+            }
+          ],
+          "name": "Fury",
+          "roleName": "Melee",
+          "limit": 999,
+          "emoteId": "1305473380023013406",
+          "roleNames": [
+            "Melee"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Gladiator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Gladiator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320011174608977",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Guardian",
+          "roles": [
+            {
+              "cName": "Tanks",
+              "name": "Tanks"
+            }
+          ],
+          "name": "Guardian",
+          "roleName": "Tanks",
+          "limit": 999,
+          "emoteId": "1418371417778552953",
+          "roleNames": [
+            "Tanks"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Impaler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Impaler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320017378115714",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Infiltrator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Infiltrator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473413414129664",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Invocator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Invocator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473414923812914",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Justicar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Justicar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371419774910484",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Liberator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Liberator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473416073052170",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Lunarch",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Lunarch",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371422161604748",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Oracle",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Oracle",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371426204778527",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Outrider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Outrider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473417360834672",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Paladin",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Paladin",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473419210653706",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Polaris",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Polaris",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371428209922178",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Raider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Raider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473454308327425",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ranger",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ranger",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473455562690592",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ravager",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ravager",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473457370300456",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scorpion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scorpion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473458347704322",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scout",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scout",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473460411301938",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scryer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scryer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371430168399902",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Seeker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Seeker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473487858700308",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Sentinel",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Sentinel",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473489519640668",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Shadowdancer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Shadowdancer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320015670902794",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Spellblade",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Spellblade",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473490685526067",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Steelheart",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Steelheart",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320018644930630",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Templar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Templar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473491696484394",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Voidlance",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Voidlance",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320019907280968",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Warden",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Warden",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473493575401483",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bastion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bastion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757049217908887",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Brawler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Brawler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757086962450482",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bulwark",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bulwark",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757091295297728",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Channeler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Channeler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757125210177606",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Juggernaut",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Juggernaut",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757128519614717",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Marauder",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Marauder",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757129945677834",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Mystic",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Mystic",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757131270951022",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Skirmisher",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Skirmisher",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757120361562222",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Strider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Strider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757122165243924",
+          "roleNames": [
+            "Attending"
+          ]
+        }
+      ],
+      "cName": "Tank",
+      "name": "Tank",
+      "limit": 999,
+      "emoteId": "878310168289505301",
+      "type": "primary"
+    },
+    {
+      "specs": [
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Battleweaver",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Battleweaver",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473373828284476",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Berserker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Berserker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473374969139220",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Cavalier",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Cavalier",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320014425198602",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crucifix",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crucifix",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371412145602674",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crusader",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crusader",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473376122441788",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Darkblighter",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Darkblighter",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473377791643658",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Disciple",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Disciple",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473378936946709",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Enigma",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Enigma",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371414645276764",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Eradicator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Eradicator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320012730830858",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Fury",
+          "roles": [
+            {
+              "cName": "Melee",
+              "name": "Melee"
+            }
+          ],
+          "name": "Fury",
+          "roleName": "Melee",
+          "limit": 999,
+          "emoteId": "1305473380023013406",
+          "roleNames": [
+            "Melee"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Gladiator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Gladiator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320011174608977",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Guardian",
+          "roles": [
+            {
+              "cName": "Tanks",
+              "name": "Tanks"
+            }
+          ],
+          "name": "Guardian",
+          "roleName": "Tanks",
+          "limit": 999,
+          "emoteId": "1418371417778552953",
+          "roleNames": [
+            "Tanks"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Impaler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Impaler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320017378115714",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Infiltrator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Infiltrator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473413414129664",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Invocator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Invocator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473414923812914",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Justicar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Justicar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371419774910484",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Liberator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Liberator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473416073052170",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Lunarch",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Lunarch",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371422161604748",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Oracle",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Oracle",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371426204778527",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Outrider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Outrider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473417360834672",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Paladin",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Paladin",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473419210653706",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Polaris",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Polaris",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371428209922178",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Raider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Raider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473454308327425",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ranger",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ranger",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473455562690592",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ravager",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ravager",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473457370300456",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scorpion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scorpion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473458347704322",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scout",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scout",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473460411301938",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scryer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scryer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371430168399902",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Seeker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Seeker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473487858700308",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Sentinel",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Sentinel",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473489519640668",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Shadowdancer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Shadowdancer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320015670902794",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Spellblade",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Spellblade",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473490685526067",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Steelheart",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Steelheart",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320018644930630",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Templar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Templar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473491696484394",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Voidlance",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Voidlance",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320019907280968",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Warden",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Warden",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473493575401483",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bastion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bastion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757049217908887",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Brawler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Brawler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757086962450482",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bulwark",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bulwark",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757091295297728",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Channeler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Channeler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757125210177606",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Juggernaut",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Juggernaut",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757128519614717",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Marauder",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Marauder",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757129945677834",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Mystic",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Mystic",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757131270951022",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Skirmisher",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Skirmisher",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757120361562222",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Strider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Strider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757122165243924",
+          "roleNames": [
+            "Attending"
+          ]
+        }
+      ],
+      "cName": "Dps",
+      "name": "Dps",
+      "limit": 999,
+      "emoteId": "592440132129521664",
+      "type": "primary"
+    },
+    {
+      "specs": [
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Battleweaver",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Battleweaver",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473373828284476",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Berserker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Berserker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473374969139220",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Cavalier",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Cavalier",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320014425198602",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crucifix",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crucifix",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371412145602674",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Crusader",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Crusader",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473376122441788",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Darkblighter",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Darkblighter",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473377791643658",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Disciple",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Disciple",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473378936946709",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Enigma",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Enigma",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371414645276764",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Eradicator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Eradicator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320012730830858",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Fury",
+          "roles": [
+            {
+              "cName": "Melee",
+              "name": "Melee"
+            }
+          ],
+          "name": "Fury",
+          "roleName": "Melee",
+          "limit": 999,
+          "emoteId": "1305473380023013406",
+          "roleNames": [
+            "Melee"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Gladiator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Gladiator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320011174608977",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Guardian",
+          "roles": [
+            {
+              "cName": "Tanks",
+              "name": "Tanks"
+            }
+          ],
+          "name": "Guardian",
+          "roleName": "Tanks",
+          "limit": 999,
+          "emoteId": "1418371417778552953",
+          "roleNames": [
+            "Tanks"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Impaler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Impaler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320017378115714",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Infiltrator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Infiltrator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473413414129664",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Invocator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Invocator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473414923812914",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Justicar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Justicar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371419774910484",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Liberator",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Liberator",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473416073052170",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Lunarch",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Lunarch",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371422161604748",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Oracle",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Oracle",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371426204778527",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Outrider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Outrider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473417360834672",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Paladin",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Paladin",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473419210653706",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Polaris",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Polaris",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371428209922178",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Raider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Raider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473454308327425",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ranger",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ranger",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473455562690592",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Ravager",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Ravager",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473457370300456",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scorpion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scorpion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473458347704322",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scout",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scout",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473460411301938",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Scryer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Scryer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1418371430168399902",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Seeker",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Seeker",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473487858700308",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Sentinel",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Sentinel",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473489519640668",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Shadowdancer",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Shadowdancer",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320015670902794",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Spellblade",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Spellblade",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473490685526067",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Steelheart",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Steelheart",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320018644930630",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Templar",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Templar",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473491696484394",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Voidlance",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Voidlance",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1314320019907280968",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Warden",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Warden",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1305473493575401483",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bastion",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bastion",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757049217908887",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Brawler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Brawler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757086962450482",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Bulwark",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Bulwark",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757091295297728",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Channeler",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Channeler",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757125210177606",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Juggernaut",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Juggernaut",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757128519614717",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Marauder",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Marauder",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757129945677834",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Mystic",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Mystic",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757131270951022",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Skirmisher",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Skirmisher",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757120361562222",
+          "roleNames": [
+            "Attending"
+          ]
+        },
+        {
+          "roleEmoteIds": [
+            null
+          ],
+          "cName": "Strider",
+          "roles": [
+            {
+              "cName": "Attending",
+              "name": "Attending"
+            }
+          ],
+          "name": "Strider",
+          "roleName": "Attending",
+          "limit": 999,
+          "emoteId": "1528757122165243924",
+          "roleNames": [
+            "Attending"
+          ]
+        }
+      ],
+      "cName": "Healer",
+      "name": "Healer",
+      "limit": 999,
+      "emoteId": "898011741735235645",
+      "type": "primary"
+    },
+    {
+      "specs": [],
+      "cName": "Late",
+      "name": "Late",
+      "limit": 999,
+      "emoteId": "612373443551297689",
+      "type": "default",
+      "effectiveName": "Late"
+    },
+    {
+      "specs": [],
+      "cName": "Bench",
+      "name": "Bench",
+      "limit": 999,
+      "emoteId": "612373441051361353",
+      "type": "default",
+      "effectiveName": "Bench"
+    },
+    {
+      "specs": [],
+      "cName": "Tentative",
+      "name": "Tentative",
+      "limit": 999,
+      "emoteId": "676284492754976788",
+      "type": "default",
+      "effectiveName": "Tentative"
+    },
+    {
+      "specs": [],
+      "cName": "Absence",
+      "name": "Absence",
+      "limit": 999,
+      "emoteId": "612343589070045200",
+      "type": "default",
+      "effectiveName": "Absence"
+    }
+  ],
+  "roles": [],
+  "description": "Anonymized fixture for tests.",
+  "channelType": "text",
+  "title": "Test Event",
+  "templateId": "t&l2",
+  "serverId": "000000000000000000",
+  "leaderId": "589432546716613029",
+  "lastUpdated": 1788376243,
+  "displayTitle": "Test Event",
+  "closingTime": 1788377400,
+  "advancedSettings": {
+    "temp_voicechannel": "false",
+    "twelve_format": false,
+    "limit_per_user": 1,
+    "tentative_emote": "676284492754976788",
+    "event_type": "interaction",
+    "deletion": "false",
+    "mention_mode": false,
+    "text_2": "default",
+    "bench_overflow": true,
+    "disable_reason": false,
+    "text_1": "default",
+    "temp_time": 24,
+    "show_classes": false,
+    "time2_emote": "593930235658108939",
+    "preserve_order": "false",
+    "tp_deletion": "1",
+    "leader_emote": "1124529969926779050",
+    "hide_comp": false,
+    "mentions": "1507036070821236859,",
+    "show_info": true,
+    "late_emote": "612373443551297689",
+    "lower_limit": 0,
+    "opt_out": "none",
+    "info_variant": "short",
+    "pin_message": false,
+    "create_thread": "false",
+    "vacuum": false,
+    "poll_add_req": "none",
+    "deadline": "30m",
+    "unregister_emote": "579506704518217739",
+    "horizontal_mode": false,
+    "show_countdown": true,
+    "dkp_include": "signed",
+    "date2_emote": "593930359985405983",
+    "reminder": "30",
+    "specs_per_signup": 1,
+    "font_style": "1",
+    "temp_role": "titledate",
+    "allowed_roles": "1507036070821236859,",
+    "queue_bench": false,
+    "dkp_amount": 10,
+    "specreset_emote": "761163891144130560",
+    "12h_format": false,
+    "disable_archiving": false,
+    "absence_emote": "612343589070045200",
+    "notes_enabled": true,
+    "date1_emote": "1124529967611523272",
+    "apply_unregister": false,
+    "show_content": true,
+    "countdown2_emote": "858794526176444467",
+    "poll_order": "sorted",
+    "limit": 9999,
+    "tp_win_min": 1,
+    "signups1_emote": "1124529971428339752",
+    "show_emotes": true,
+    "show_extra_specs": true,
+    "banned_roles": "none,",
+    "image": "https://raid-helper.dev/uploads/000000000000000000/dde8e7e79ef0aa83829a1a6617df986f.png",
+    "thumbnail": "none",
+    "show_footer": true,
+    "apply_specreset": true,
+    "allow_duplicate": false,
+    "forum_tags": "Event",
+    "alt_names": false,
+    "tp_profile": "none",
+    "show_title": true,
+    "create_discordevent": true,
+    "show_counter": true,
+    "show_banned": false,
+    "thread_logging": false,
+    "bench_emote": "612373441051361353",
+    "color": "#673ab7",
+    "use_nicknames": true,
+    "show_on_overview": true,
+    "voice_channel": "1508822409988276425",
+    "duration": 30,
+    "spec_saving": true,
+    "time1_emote": "1124529972883767398",
+    "defaults_pre_req": true,
+    "poll_add": false,
+    "mention_leader": false,
+    "bold_all": true,
+    "custom": "none",
+    "show_leader": false,
+    "signups2_emote": "593930418932285440",
+    "dkp_delay": "24",
+    "show_roles": true,
+    "date_variant": "local",
+    "response": "none",
+    "embed_profile": "false",
+    "lock_at_limit": true,
+    "countdown1_emote": "1124530049329139772",
+    "show_numbering": true,
+    "show_allowed": false,
+    "delete_thread": false,
+    "tr_include": "signed",
+    "attendance": "true"
+  },
+  "scheduledId": "1507069772163190905-4",
+  "startTime": 1788379200,
+  "temporaryRole": "000000000000000002",
+  "id": "111111111111111111",
+  "channelId": "000000000000000001",
+  "creator": {
+    "name": "TestLeader",
+    "id": "589432546716613029"
+  },
+  "coLeaders": [],
+  "leaderName": "TestLeader",
+  "channelName": "test-channel",
+  "time": "22:00",
+  "endTime": 1788381000,
+  "announcements": []
+}

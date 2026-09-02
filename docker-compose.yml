@@ -1,0 +1,23 @@
+services:
+  raid-helper-attendance:
+    build: .
+    container_name: raid-helper-attendance
+    restart: unless-stopped
+    environment:
+      DB_PATH: /app/data/bot.sqlite
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID}
+      RAIDHELPER_API_KEY: ${RAIDHELPER_API_KEY}
+      RAIDHELPER_SERVER_ID: ${RAIDHELPER_SERVER_ID}
+      POLL_INTERVAL_MINUTES: ${POLL_INTERVAL_MINUTES:-20}
+      PERIOD_MODE: ${PERIOD_MODE:-week}
+      PERIOD_ROLLING_DAYS: ${PERIOD_ROLLING_DAYS:-30}
+      ELIGIBILITY_MIN_DAYS: ${ELIGIBILITY_MIN_DAYS:-14}
+      TOP_FLOP_SIZE: ${TOP_FLOP_SIZE:-10}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    volumes:
+      - raid-helper-data:/app/data
+
+volumes:
+  raid-helper-data:
