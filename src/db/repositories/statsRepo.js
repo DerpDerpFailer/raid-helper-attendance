@@ -4,6 +4,7 @@ const RANK_COLUMN = {
   global: 'global_rank',
   presence: 'presence_rank',
   response: 'response_rank',
+  absence: 'absence_rank',
 };
 
 function assertAxis(axis) {
@@ -41,11 +42,13 @@ function replaceSnapshots(periodId, rows) {
 
     const insert = db.prepare(`
       INSERT INTO stats_snapshots (
-        period_id, member_id, member_joined_at, total_events, responses, presences,
-        response_rate, presence_rate, score_global, eligible, global_rank, presence_rank, response_rank
+        period_id, member_id, member_joined_at, total_events, responses, presences, absences,
+        response_rate, presence_rate, absence_rate, score_global, eligible,
+        global_rank, presence_rank, response_rank, absence_rank
       ) VALUES (
-        @periodId, @memberId, @joinedAt, @totalEvents, @responses, @presences,
-        @responseRate, @presenceRate, @scoreGlobal, @eligible, @globalRank, @presenceRank, @responseRank
+        @periodId, @memberId, @joinedAt, @totalEvents, @responses, @presences, @absences,
+        @responseRate, @presenceRate, @absenceRate, @scoreGlobal, @eligible,
+        @globalRank, @presenceRank, @responseRank, @absenceRank
       )
     `);
 

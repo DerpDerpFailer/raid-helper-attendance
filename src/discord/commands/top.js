@@ -7,7 +7,7 @@ const { buildTopFlopEmbed } = require('../embeds/topFlopEmbed');
 const AXIS_CHOICES = [
   { name: 'Global score', value: 'global' },
   { name: 'Presence', value: 'presence' },
-  { name: 'Response', value: 'response' },
+  { name: 'Sign-up', value: 'response' },
 ];
 
 const data = new SlashCommandBuilder()

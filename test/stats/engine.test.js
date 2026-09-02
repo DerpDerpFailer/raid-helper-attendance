@@ -126,4 +126,20 @@ describe('stats/engine computeSnapshotRows', () => {
     const expectedScore = 0.7 * bob.presenceRate + 0.3 * bob.responseRate;
     expect(bob.scoreGlobal).toBeCloseTo(expectedScore);
   });
+
+  it('tracks explicit Absence marks as a distinct metric from a low presence rate', () => {
+    const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END);
+    const byId = Object.fromEntries(rows.map((r) => [r.memberId, r]));
+
+    expect(byId.carol.absences).toBe(1);
+    expect(byId.carol.absenceRate).toBeCloseTo(1 / 3);
+    expect(byId.alice.absences).toBe(0);
+    expect(byId.bob.absences).toBe(0);
+
+    // Rank 1 = best (fewest absences) on this axis too, like every other axis: Alice and Bob
+    // tie for rank 1 (0 absences each), Carol is worst among the 3 eligible members -> rank 3.
+    expect(byId.alice.absenceRank).toBe(1);
+    expect(byId.bob.absenceRank).toBe(1);
+    expect(byId.carol.absenceRank).toBe(3);
+  });
 });

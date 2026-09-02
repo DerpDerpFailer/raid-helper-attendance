@@ -26,8 +26,9 @@ function buildStatsEmbed({ displayName, avatarUrl, snapshot, evolution, period }
   }
 
   embed.addFields(
-    { name: 'Response rate', value: `${pct(snapshot.response_rate)} (${snapshot.responses}/${snapshot.total_events})`, inline: true },
+    { name: 'Sign-up rate', value: `${pct(snapshot.response_rate)} (${snapshot.responses}/${snapshot.total_events})`, inline: true },
     { name: 'Presence rate', value: `${pct(snapshot.presence_rate)} (${snapshot.presences}/${snapshot.total_events})`, inline: true },
+    { name: 'Absence rate', value: `${pct(snapshot.absence_rate)} (${snapshot.absences}/${snapshot.total_events})`, inline: true },
     { name: 'Global score', value: snapshot.score_global.toFixed(2), inline: true },
   );
 
@@ -35,7 +36,7 @@ function buildStatsEmbed({ displayName, avatarUrl, snapshot, evolution, period }
     embed.addFields(
       { name: 'Global rank', value: `#${snapshot.global_rank}`, inline: true },
       { name: 'Presence rank', value: `#${snapshot.presence_rank}`, inline: true },
-      { name: 'Response rank', value: `#${snapshot.response_rank}`, inline: true },
+      { name: 'Sign-up rank', value: `#${snapshot.response_rank}`, inline: true },
       { name: 'Evolution vs previous period', value: formatTrend(evolution), inline: false },
     );
 

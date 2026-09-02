@@ -16,7 +16,10 @@ WITH base AS (
   GROUP BY m.id
 ),
 signed AS (
-  SELECT s.member_id, COUNT(*) AS responses, SUM(s.is_present) AS presences
+  SELECT s.member_id,
+    COUNT(*) AS responses,
+    SUM(s.is_present) AS presences,
+    SUM(CASE WHEN s.status = 'Absence' THEN 1 ELSE 0 END) AS absences
   FROM signups s JOIN events e ON e.id = s.event_id
   WHERE e.start_time >= @periodStart AND e.start_time < @periodEnd
   GROUP BY s.member_id
@@ -25,8 +28,10 @@ computed AS (
   SELECT b.member_id, b.joined_at, b.total_events,
     COALESCE(sg.responses, 0) AS responses,
     COALESCE(sg.presences, 0) AS presences,
+    COALESCE(sg.absences, 0) AS absences,
     CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.responses, 0) AS REAL) / b.total_events ELSE 0 END AS response_rate,
     CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.presences, 0) AS REAL) / b.total_events ELSE 0 END AS presence_rate,
+    CASE WHEN b.total_events > 0 THEN CAST(COALESCE(sg.absences, 0) AS REAL) / b.total_events ELSE 0 END AS absence_rate,
     CASE WHEN b.is_active = 1 AND (julianday(@periodEnd) - julianday(b.joined_at)) >= @eligibilityMinDays
          THEN 1 ELSE 0 END AS eligible
   FROM base b LEFT JOIN signed sg ON sg.member_id = b.member_id
@@ -35,11 +40,16 @@ scored AS (
   SELECT *, (0.7 * presence_rate + 0.3 * response_rate) AS score_global FROM computed
 )
 SELECT
-  member_id, joined_at, total_events, responses, presences,
-  response_rate, presence_rate, score_global, eligible,
+  member_id, joined_at, total_events, responses, presences, absences,
+  response_rate, presence_rate, absence_rate, score_global, eligible,
   CASE WHEN eligible = 1 THEN RANK() OVER (ORDER BY CASE WHEN eligible = 1 THEN score_global END DESC) END AS global_rank,
   CASE WHEN eligible = 1 THEN RANK() OVER (ORDER BY CASE WHEN eligible = 1 THEN presence_rate END DESC) END AS presence_rank,
-  CASE WHEN eligible = 1 THEN RANK() OVER (ORDER BY CASE WHEN eligible = 1 THEN response_rate END DESC) END AS response_rank
+  CASE WHEN eligible = 1 THEN RANK() OVER (ORDER BY CASE WHEN eligible = 1 THEN response_rate END DESC) END AS response_rank,
+  -- Ascending, unlike the other axes: rank 1 = lowest absence_rate = "best" (rarely marks
+  -- absent), consistent with rank 1 always meaning "best" on every axis. NULLS LAST is required
+  -- here (unlike the DESC axes above) because SQLite's default puts NULLs first in ASC order,
+  -- which would otherwise push ineligible members into the low, "best" rank numbers.
+  CASE WHEN eligible = 1 THEN RANK() OVER (ORDER BY CASE WHEN eligible = 1 THEN absence_rate END ASC NULLS LAST) END AS absence_rank
 FROM scored;
 `;
 
@@ -58,13 +68,16 @@ function computeSnapshotRows(periodStart, periodEnd) {
     totalEvents: r.total_events,
     responses: r.responses,
     presences: r.presences,
+    absences: r.absences,
     responseRate: r.response_rate,
     presenceRate: r.presence_rate,
+    absenceRate: r.absence_rate,
     scoreGlobal: r.score_global,
     eligible: r.eligible,
     globalRank: r.global_rank,
     presenceRank: r.presence_rank,
     responseRank: r.response_rank,
+    absenceRank: r.absence_rank,
   }));
 }
 

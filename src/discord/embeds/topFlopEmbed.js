@@ -3,8 +3,10 @@ const config = require('../../config');
 const { buildDescription } = require('./truncate');
 
 const MEDALS = ['🥇', '🥈', '🥉'];
-const AXIS_LABEL = { global: 'Global Score', presence: 'Presence', response: 'Response' };
-const RANK_FIELD = { global: 'global_rank', presence: 'presence_rank', response: 'response_rank' };
+const AXIS_LABEL = { global: 'Global Score', presence: 'Presence', response: 'Sign-up', absence: 'Absence' };
+const RANK_FIELD = {
+  global: 'global_rank', presence: 'presence_rank', response: 'response_rank', absence: 'absence_rank',
+};
 
 function pct(x) {
   return `${(x * 100).toFixed(1)}%`;
@@ -13,12 +15,15 @@ function pct(x) {
 function formatRow(row, axis, index) {
   const medal = MEDALS[index] ?? `#${row[RANK_FIELD[axis]]}`;
   if (axis === 'global') {
-    return `${medal} **${row.display_name}** — score ${row.score_global.toFixed(2)} (${pct(row.presence_rate)} presence / ${pct(row.response_rate)} response)`;
+    return `${medal} **${row.display_name}** — score ${row.score_global.toFixed(2)} (${pct(row.presence_rate)} presence / ${pct(row.response_rate)} sign-up)`;
   }
   if (axis === 'presence') {
     return `${medal} **${row.display_name}** — ${pct(row.presence_rate)} presence`;
   }
-  return `${medal} **${row.display_name}** — ${pct(row.response_rate)} response`;
+  if (axis === 'absence') {
+    return `${medal} **${row.display_name}** — ${pct(row.absence_rate)} marked absent (${row.absences}/${row.total_events})`;
+  }
+  return `${medal} **${row.display_name}** — ${pct(row.response_rate)} sign-up`;
 }
 
 function buildTopFlopEmbed({ kind, axis, rows, period }) {
