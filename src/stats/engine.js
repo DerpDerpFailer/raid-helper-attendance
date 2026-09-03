@@ -1,6 +1,7 @@
 const { getDb } = require('../db/connection');
 const config = require('../config');
 const statsRepo = require('../db/repositories/statsRepo');
+const settingsRepo = require('../db/repositories/settingsRepo');
 const periods = require('./periods');
 const logger = require('../utils/logger');
 
@@ -44,7 +45,9 @@ computed AS (
   FROM base b LEFT JOIN signed sg ON sg.member_id = b.member_id
 ),
 scored AS (
-  SELECT *, (0.7 * presence_rate + 0.3 * response_rate) AS score_global FROM computed
+  -- Weights configurable via /setup score-weight (default 0.7/0.3, the original Excel model);
+  -- always sum to 1 (@responseWeight = 1 - @presenceWeight), see settingsRepo.getScoreWeights().
+  SELECT *, (@presenceWeight * presence_rate + @responseWeight * response_rate) AS score_global FROM computed
 )
 SELECT
   member_id, joined_at, total_events, responses, presences, absences,
@@ -67,11 +70,14 @@ FROM scored;
  */
 function computeSnapshotRows(periodStart, periodEnd, now = new Date()) {
   const db = getDb();
+  const { presenceWeight, responseWeight } = settingsRepo.getScoreWeights();
   const rows = db.prepare(SNAPSHOT_QUERY).all({
     periodStart: periodStart.toISOString(),
     periodEnd: periodEnd.toISOString(),
     now: now.toISOString(),
     eligibilityMinDays: config.stats.eligibilityMinDays,
+    presenceWeight,
+    responseWeight,
   });
 
   return rows.map((r) => ({

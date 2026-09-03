@@ -11,6 +11,7 @@ process.env.ELIGIBILITY_MIN_DAYS = '14';
 const { migrate } = require('../../src/db/migrate');
 const { getDb } = require('../../src/db/connection');
 const engine = require('../../src/stats/engine');
+const settingsRepo = require('../../src/db/repositories/settingsRepo');
 
 const PERIOD_START = new Date('2026-08-31T00:00:00.000Z');
 const PERIOD_END = new Date('2026-09-07T00:00:00.000Z');
@@ -130,12 +131,25 @@ describe('stats/engine computeSnapshotRows', () => {
     expect(erin.responseRank).toBeNull();
   });
 
-  it('applies the 0.7/0.3 global score weighting', () => {
+  it('applies the default 0.7/0.3 global score weighting when unconfigured', () => {
     const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
     const bob = rows.find((r) => r.memberId === 'bob');
 
     const expectedScore = 0.7 * bob.presenceRate + 0.3 * bob.responseRate;
     expect(bob.scoreGlobal).toBeCloseTo(expectedScore);
+  });
+
+  it('applies a custom score weighting set via /setup score-weight', () => {
+    settingsRepo.setScoreWeights(0.4); // 40% presence / 60% sign-up
+    try {
+      const rows = engine.computeSnapshotRows(PERIOD_START, PERIOD_END, NOW);
+      const bob = rows.find((r) => r.memberId === 'bob');
+
+      const expectedScore = 0.4 * bob.presenceRate + 0.6 * bob.responseRate;
+      expect(bob.scoreGlobal).toBeCloseTo(expectedScore);
+    } finally {
+      settingsRepo.setScoreWeights(0.7); // restore default for other tests in this file
+    }
   });
 
   it('tracks explicit Absence marks as a distinct metric from a low presence rate', () => {
