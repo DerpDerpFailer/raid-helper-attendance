@@ -93,6 +93,62 @@ function computeSnapshotRows(periodStart, periodEnd, now = new Date()) {
   }));
 }
 
+const NO_SIGNUP_QUERY = `
+WITH window_events AS (
+  -- Only events that have already happened count — an event still upcoming in the window
+  -- can't yet be held against anyone (see computeSnapshotRows for the same principle).
+  SELECT id FROM events WHERE start_time >= @windowStart AND start_time <= @now
+),
+tracked AS (
+  SELECT id, display_name, joined_at FROM members
+  WHERE is_bot = 0 AND is_active = 1
+    AND (julianday(@now) - julianday(joined_at)) >= @eligibilityMinDays
+),
+signed_in_window AS (
+  SELECT DISTINCT s.member_id FROM signups s
+  JOIN window_events e ON e.id = s.event_id
+),
+last_signup AS (
+  SELECT s.member_id, MAX(e.start_time) AS last_signed_event_at
+  FROM signups s JOIN events e ON e.id = s.event_id
+  WHERE e.start_time <= @now
+  GROUP BY s.member_id
+)
+SELECT t.id AS member_id, t.display_name, ls.last_signed_event_at
+FROM tracked t
+LEFT JOIN last_signup ls ON ls.member_id = t.id
+WHERE t.id NOT IN (SELECT member_id FROM signed_in_window)
+ORDER BY t.display_name COLLATE NOCASE;
+`;
+
+/**
+ * Tracked members (respects /setup role, excludes bots, respects the same eligibility grace
+ * period as every other metric) with zero sign-ups of any status in the last `days` days, as of
+ * `now`. Ad-hoc: computed live, not tied to the configured PERIOD_MODE or stored in snapshots.
+ */
+function getNoSignupMembers(days, now = new Date()) {
+  const db = getDb();
+  const windowStart = new Date(now.getTime() - days * 24 * 60 * 60 * 1000);
+
+  const eventsInWindow = db.prepare(
+    'SELECT COUNT(*) AS n FROM events WHERE start_time >= ? AND start_time <= ?'
+  ).get(windowStart.toISOString(), now.toISOString()).n;
+
+  // Nothing happened in the window at all: "no sign-up" would be true of everyone trivially and
+  // wouldn't mean anything. Let the caller show "no events yet" instead of a misleading list.
+  if (eventsInWindow === 0) {
+    return { eventsInWindow, members: [] };
+  }
+
+  const members = db.prepare(NO_SIGNUP_QUERY).all({
+    windowStart: windowStart.toISOString(),
+    now: now.toISOString(),
+    eligibilityMinDays: config.stats.eligibilityMinDays,
+  });
+
+  return { eventsInWindow, members };
+}
+
 /** Recomputes and persists the snapshot for a given period, returns its period_id. */
 function computeAndStorePeriod(period) {
   const periodId = statsRepo.upsertPeriod(period.label, period.start.toISOString(), period.end.toISOString());
@@ -124,4 +180,6 @@ function ensureCurrentAndPreviousSnapshots() {
   return { current, previous, currentPeriodId, previousPeriodId };
 }
 
-module.exports = { computeSnapshotRows, computeAndStorePeriod, ensureCurrentAndPreviousSnapshots };
+module.exports = {
+  computeSnapshotRows, computeAndStorePeriod, ensureCurrentAndPreviousSnapshots, getNoSignupMembers,
+};

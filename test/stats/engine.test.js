@@ -54,6 +54,8 @@ describe('stats/engine computeSnapshotRows', () => {
     seedMember('dave', 'Dave', '2026-01-01T00:00:00.000Z', { isActive: 0, leftAt: '2026-08-15T00:00:00.000Z' });
     // Brand new member (joined 2 days before period end): not yet eligible (< 14 days tenure).
     seedMember('erin', 'Erin', '2026-09-05T00:00:00.000Z');
+    // Long-tenured but has never signed up for anything — the "no sign-up" case.
+    seedMember('frank', 'Frank', '2026-01-01T00:00:00.000Z');
 
     seedEvent('evt1', '2026-09-01T20:00:00.000Z');
     seedEvent('evt2', '2026-09-03T20:00:00.000Z');
@@ -145,11 +147,12 @@ describe('stats/engine computeSnapshotRows', () => {
     expect(byId.alice.absences).toBe(0);
     expect(byId.bob.absences).toBe(0);
 
-    // Rank 1 = best (fewest absences) on this axis too, like every other axis: Alice and Bob
-    // tie for rank 1 (0 absences each), Carol is worst among the 3 eligible members -> rank 3.
+    // Rank 1 = best (fewest absences) on this axis too, like every other axis: Alice, Bob and
+    // Frank (0 absences each) tie for rank 1 -> Carol is next, rank 4 (competition ranking skips
+    // ranks 2-3 for the 3-way tie ahead of her).
     expect(byId.alice.absenceRank).toBe(1);
     expect(byId.bob.absenceRank).toBe(1);
-    expect(byId.carol.absenceRank).toBe(3);
+    expect(byId.carol.absenceRank).toBe(4);
   });
 
   it('excludes events that have not happened yet, even if already posted with sign-ups', () => {
@@ -167,5 +170,30 @@ describe('stats/engine computeSnapshotRows', () => {
     const aliceLater = laterRows.find((r) => r.memberId === 'alice');
     expect(aliceLater.totalEvents).toBe(4);
     expect(aliceLater.responses).toBe(4);
+  });
+});
+
+describe('stats/engine getNoSignupMembers', () => {
+  it('lists tracked members with zero sign-ups in the window, with last-signup context', () => {
+    const { eventsInWindow, members } = engine.getNoSignupMembers(7, NOW);
+
+    // evt1 (09-01), evt2 (09-03), evt3 (09-06) all fall in [NOW-7d, NOW] = [08-31, 09-07].
+    expect(eventsInWindow).toBe(3);
+
+    const ids = members.map((m) => m.member_id);
+    expect(ids).toContain('frank'); // never signed up for anything
+    expect(ids).not.toContain('alice'); // signed all 3
+    expect(ids).not.toContain('carol'); // signed at least one (evt1, as Absence — still a sign-up)
+    expect(ids).not.toContain('erin'); // not yet eligible, excluded from "tracked" entirely
+    expect(ids).not.toContain('dave'); // inactive, excluded
+
+    const frank = members.find((m) => m.member_id === 'frank');
+    expect(frank.last_signed_event_at).toBeNull();
+  });
+
+  it('reports zero events rather than a misleading empty list when the window has no events', () => {
+    const { eventsInWindow, members } = engine.getNoSignupMembers(7, new Date('2026-01-15T00:00:00.000Z'));
+    expect(eventsInWindow).toBe(0);
+    expect(members).toEqual([]);
   });
 });
