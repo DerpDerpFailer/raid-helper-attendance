@@ -1,5 +1,4 @@
 const { getDb } = require('../db/connection');
-const config = require('../config');
 const statsRepo = require('../db/repositories/statsRepo');
 const settingsRepo = require('../db/repositories/settingsRepo');
 const periods = require('./periods');
@@ -75,7 +74,7 @@ function computeSnapshotRows(periodStart, periodEnd, now = new Date()) {
     periodStart: periodStart.toISOString(),
     periodEnd: periodEnd.toISOString(),
     now: now.toISOString(),
-    eligibilityMinDays: config.stats.eligibilityMinDays,
+    eligibilityMinDays: settingsRepo.getEligibilityMinDays(),
     presenceWeight,
     responseWeight,
   });
@@ -149,7 +148,7 @@ function getNoSignupMembers(days, now = new Date()) {
   const members = db.prepare(NO_SIGNUP_QUERY).all({
     windowStart: windowStart.toISOString(),
     now: now.toISOString(),
-    eligibilityMinDays: config.stats.eligibilityMinDays,
+    eligibilityMinDays: settingsRepo.getEligibilityMinDays(),
   });
 
   return { eventsInWindow, members };

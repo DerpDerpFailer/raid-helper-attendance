@@ -1,4 +1,4 @@
-const config = require('../config');
+const settingsRepo = require('../db/repositories/settingsRepo');
 const {
   addDays, mondayOfWeekContaining, isoWeekInfo, firstOfMonth, startOfUTCDate,
 } = require('../utils/dates');
@@ -27,7 +27,7 @@ function computePeriod(mode, referenceDate) {
   }
 
   if (mode === 'rolling') {
-    const days = config.stats.periodRollingDays;
+    const days = settingsRepo.getPeriodRollingDays();
     const end = addDays(startOfUTCDate(referenceDate), 1); // through the end of today
     const start = addDays(end, -days);
     return { label: `rolling${days}-${dateStr(startOfUTCDate(referenceDate))}`, start, end };
@@ -38,7 +38,7 @@ function computePeriod(mode, referenceDate) {
 
 /** The period containing "today" — live, recomputed daily, may be partial (e.g. mid-week). */
 function getCurrentPeriod(referenceDate = new Date()) {
-  return computePeriod(config.stats.periodMode, referenceDate);
+  return computePeriod(settingsRepo.getPeriodMode(), referenceDate);
 }
 
 /**
@@ -47,7 +47,7 @@ function getCurrentPeriod(referenceDate = new Date()) {
  */
 function getPreviousPeriod(currentPeriod) {
   const prevReferenceDate = addDays(currentPeriod.start, -1);
-  return computePeriod(config.stats.periodMode, prevReferenceDate);
+  return computePeriod(settingsRepo.getPeriodMode(), prevReferenceDate);
 }
 
 module.exports = { getCurrentPeriod, getPreviousPeriod };

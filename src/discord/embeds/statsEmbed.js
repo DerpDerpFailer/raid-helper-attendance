@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const config = require('../../config');
+const settingsRepo = require('../../db/repositories/settingsRepo');
 
 function pct(x) {
   return `${(x * 100).toFixed(1)}%`;
@@ -49,7 +49,7 @@ function buildStatsEmbed({ displayName, avatarUrl, snapshot, evolution, period }
   } else {
     embed.addFields({
       name: 'Ranking',
-      value: `Not yet eligible — requires ${config.stats.eligibilityMinDays}+ days of tenure since joining.`,
+      value: `Not yet eligible — requires ${settingsRepo.getEligibilityMinDays()}+ days of tenure since joining.`,
     });
   }
 

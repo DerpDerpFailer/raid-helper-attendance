@@ -1,0 +1,51 @@
+import { describe, it, expect, beforeAll } from 'vitest';
+
+process.env.DISCORD_TOKEN = 'test';
+process.env.DISCORD_CLIENT_ID = 'test';
+process.env.DISCORD_GUILD_ID = 'test';
+process.env.RAIDHELPER_API_KEY = 'test';
+process.env.RAIDHELPER_SERVER_ID = 'test';
+process.env.DB_PATH = ':memory:';
+process.env.PERIOD_MODE = 'week';
+process.env.PERIOD_ROLLING_DAYS = '30';
+process.env.ELIGIBILITY_MIN_DAYS = '14';
+
+const { migrate } = require('../../src/db/migrate');
+const settingsRepo = require('../../src/db/repositories/settingsRepo');
+
+describe('db/repositories/settingsRepo', () => {
+  beforeAll(() => {
+    migrate();
+  });
+
+  it('falls back to the env-var defaults (config.js) until /setup overrides them', () => {
+    expect(settingsRepo.getPeriodMode()).toBe('week');
+    expect(settingsRepo.getPeriodRollingDays()).toBe(30);
+    expect(settingsRepo.getEligibilityMinDays()).toBe(14);
+    expect(settingsRepo.getDropoutThresholds()).toEqual({
+      alertRank: 15, alertScore: 0.15, criticalRank: 30, criticalScore: 0.30,
+    });
+  });
+
+  it('persists overrides made via the /setup setters', () => {
+    settingsRepo.setPeriodMode('rolling');
+    settingsRepo.setPeriodRollingDays(45);
+    settingsRepo.setEligibilityMinDays(21);
+
+    expect(settingsRepo.getPeriodMode()).toBe('rolling');
+    expect(settingsRepo.getPeriodRollingDays()).toBe(45);
+    expect(settingsRepo.getEligibilityMinDays()).toBe(21);
+  });
+
+  it('only overrides the dropout thresholds explicitly passed to setDropoutThresholds', () => {
+    settingsRepo.setDropoutThresholds({ alertRank: 10 });
+    expect(settingsRepo.getDropoutThresholds()).toEqual({
+      alertRank: 10, alertScore: 0.15, criticalRank: 30, criticalScore: 0.30,
+    });
+
+    settingsRepo.setDropoutThresholds({ criticalScore: 0.5 });
+    expect(settingsRepo.getDropoutThresholds()).toEqual({
+      alertRank: 10, alertScore: 0.15, criticalRank: 30, criticalScore: 0.5,
+    });
+  });
+});

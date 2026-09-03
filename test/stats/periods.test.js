@@ -1,22 +1,26 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach } from 'vitest';
 
 process.env.DISCORD_TOKEN = 'test';
 process.env.DISCORD_CLIENT_ID = 'test';
 process.env.DISCORD_GUILD_ID = 'test';
 process.env.RAIDHELPER_API_KEY = 'test';
 process.env.RAIDHELPER_SERVER_ID = 'test';
+process.env.DB_PATH = ':memory:';
 
-const config = require('../../src/config');
+const { migrate } = require('../../src/db/migrate');
+const settingsRepo = require('../../src/db/repositories/settingsRepo');
+const periods = require('../../src/stats/periods');
 
 describe('stats/periods', () => {
+  beforeAll(() => {
+    migrate();
+  });
+
   beforeEach(() => {
-    config.stats.periodMode = 'week';
+    settingsRepo.setPeriodMode('week');
   });
 
   it('week mode: current period is Monday 00:00 UTC to next Monday, previous is the week before', () => {
-    delete require.cache[require.resolve('../../src/stats/periods')];
-    const periods = require('../../src/stats/periods');
-
     // Wednesday 2026-09-02T12:00:00Z
     const ref = new Date('2026-09-02T12:00:00Z');
     const current = periods.getCurrentPeriod(ref);
@@ -31,9 +35,7 @@ describe('stats/periods', () => {
   });
 
   it('month mode: current period is the calendar month, previous is the month before', () => {
-    config.stats.periodMode = 'month';
-    delete require.cache[require.resolve('../../src/stats/periods')];
-    const periods = require('../../src/stats/periods');
+    settingsRepo.setPeriodMode('month');
 
     const ref = new Date('2026-09-02T12:00:00Z');
     const current = periods.getCurrentPeriod(ref);
@@ -48,10 +50,8 @@ describe('stats/periods', () => {
   });
 
   it('rolling mode: current period is the last N days through today, previous is the N days before that', () => {
-    config.stats.periodMode = 'rolling';
-    config.stats.periodRollingDays = 30;
-    delete require.cache[require.resolve('../../src/stats/periods')];
-    const periods = require('../../src/stats/periods');
+    settingsRepo.setPeriodMode('rolling');
+    settingsRepo.setPeriodRollingDays(30);
 
     const ref = new Date('2026-09-02T12:00:00Z');
     const current = periods.getCurrentPeriod(ref);

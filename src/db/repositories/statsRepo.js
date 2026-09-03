@@ -1,4 +1,5 @@
 const { getDb } = require('../connection');
+const settingsRepo = require('./settingsRepo');
 
 const RANK_COLUMN = {
   global: 'global_rank',
@@ -99,9 +100,14 @@ function getFlop(periodId, axis, size) {
   `).all(periodId, threshold);
 }
 
-/** Current vs previous period comparison for one member (used by /stats) or every eligible member (used by /dropouts). */
+/**
+ * Current vs previous period comparison for one member (used by /stats) or every eligible member
+ * (used by /dropouts). Alert/Critical thresholds are configurable via /setup dropout-thresholds
+ * (settingsRepo.getDropoutThresholds()), defaulting to -15/-0.15 (Alert) and -30/-0.30 (Critical).
+ */
 function getEvolution(currentPeriodId, previousPeriodId, memberId = null) {
   const db = getDb();
+  const t = settingsRepo.getDropoutThresholds();
   const sql = `
     SELECT
       cur.member_id,
@@ -114,23 +120,27 @@ function getEvolution(currentPeriodId, previousPeriodId, memberId = null) {
       CASE WHEN prev.score_global IS NULL THEN NULL ELSE (cur.score_global - prev.score_global) END AS score_delta,
       CASE
         WHEN prev.global_rank IS NULL THEN NULL
-        WHEN (prev.global_rank - cur.global_rank) <= -30 OR (cur.score_global - prev.score_global) <= -0.30 THEN 'Critical'
-        WHEN (prev.global_rank - cur.global_rank) <= -15 OR (cur.score_global - prev.score_global) <= -0.15 THEN 'Alert'
+        WHEN (prev.global_rank - cur.global_rank) <= -@criticalRank OR (cur.score_global - prev.score_global) <= -@criticalScore THEN 'Critical'
+        WHEN (prev.global_rank - cur.global_rank) <= -@alertRank OR (cur.score_global - prev.score_global) <= -@alertScore THEN 'Alert'
         ELSE NULL
       END AS alert_level
     FROM stats_snapshots cur
     JOIN members m ON m.id = cur.member_id
     LEFT JOIN stats_snapshots prev
-      ON prev.member_id = cur.member_id AND prev.period_id = ?
-    WHERE cur.period_id = ? AND cur.eligible = 1
-    ${memberId ? 'AND cur.member_id = ?' : ''}
+      ON prev.member_id = cur.member_id AND prev.period_id = @previousPeriodId
+    WHERE cur.period_id = @currentPeriodId AND cur.eligible = 1
+    ${memberId ? 'AND cur.member_id = @memberId' : ''}
   `;
 
-  const params = memberId
-    ? [previousPeriodId, currentPeriodId, memberId]
-    : [previousPeriodId, currentPeriodId];
-
-  return db.prepare(sql).all(...params);
+  return db.prepare(sql).all({
+    previousPeriodId,
+    currentPeriodId,
+    memberId,
+    alertRank: t.alertRank,
+    alertScore: t.alertScore,
+    criticalRank: t.criticalRank,
+    criticalScore: t.criticalScore,
+  });
 }
 
 module.exports = {

@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const config = require('../../config');
+const settingsRepo = require('../../db/repositories/settingsRepo');
 const { buildDescription } = require('./truncate');
 
 const MEDALS = ['🥇', '🥈', '🥉'];
@@ -33,7 +34,7 @@ function buildTopFlopEmbed({ kind, axis, rows, period }) {
   const embed = new EmbedBuilder()
     .setTitle(title)
     .setColor(kind === 'top' ? 0x2ecc71 : 0xe74c3c)
-    .setFooter({ text: `Ranked members only (${config.stats.eligibilityMinDays}+ days tenure) · Period: ${period.label}` });
+    .setFooter({ text: `Ranked members only (${settingsRepo.getEligibilityMinDays()}+ days tenure) · Period: ${period.label}` });
 
   if (rows.length === 0) {
     embed.setDescription('No ranked members yet for this period.');
